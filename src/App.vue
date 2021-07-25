@@ -3,6 +3,7 @@
     <div style="display: flex; justify-content:center; align-items: center; margin-top: 1%; margin-bottom: 1%">
       <img style="max-width:10%" src="./assets/pokeball.png">
       <h4 class="is-size-1" style="margin-left: 1%" >Pokédex</h4>
+      <h4 class="is-size-7" style="margin-left: 1%" >2ª geração</h4>
       
     </div>
     <div  class="column is-half is-offset-one-quarter">

@@ -9,7 +9,7 @@
             <figure >
             <img :src="currentImg" alt="Placeholder image">
             </figure>
-            <button class="button is-fullwidth" @click="changeSprite">Mudar Sprite</button>
+            <button class="button is-fullwidth" @click="changeSprite">{{ btnSpriteLabel }}</button>
         </div>
         <div class="card-content">
             <div class="media">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="content">
-                
+                <p>Peso: {{ pokemon.weight/10 }} Kg</p>
             </div>
         </div>
         </div>
@@ -44,20 +44,21 @@ export default {
             this.pokemon.front_sprite = res.data.sprites.front_default;
             this.pokemon.back_sprite = res.data.sprites.back_default;
             this.currentImg = this.pokemon.front_sprite;
-            this.pokemon.types.forEach(type => {
-                console.log(type.slot + " " + type.type.name);
-            });
+            this.btnSpriteLabel = 'Costas';
+            this.pokemon.weight = res.data.weight;
         })
     },
     data(){
         return {
             isFront: true,
             currentImg: '',
+            btnSpriteLabel: '',
             pokemon: {
                 id: '',
                 types: '',
                 front_sprite: '',
                 back_sprite: '',
+                weight: '',
             }
         }
     },
@@ -119,10 +120,12 @@ export default {
             if (this.isFront){
                 this.isFront = false;
                 this.currentImg = this.pokemon.back_sprite;
+                this.btnSpriteLabel = 'Frente';
             } 
             else{
                 this.isFront = true;
                 this.currentImg = this.pokemon.front_sprite;
+                this.btnSpriteLabel = 'Costas';
             }
         }
     }
